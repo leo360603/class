@@ -23,7 +23,7 @@
             <span class="pill-tag pill-blue">👋 導師介紹</span>
             <div class="profile-header">
                 <!-- 大頭照放於 images 資料夾 -->
-                <img src="images/your-photo.jpg" alt="建豪 Jianhao" class="profile-img" onerror="this.src='https://via.placeholder.com/80?text=Jianhao'">
+                <img src="images/your-photo.jpg" alt="建豪 Jianhao" class="profile-img" onerror="this.onerror=null;this.src='https://via.placeholder.com/80?text=Jianhao'">
                 <div class="profile-title">
                     <h2>建豪 Jianhao</h2>
                     <p class="subtitle">自媒體操盤手 / 品牌行銷顧問</p>
@@ -135,28 +135,24 @@
             <h2 class="day-title">留下資訊，搶先獲得一對一評估名額</h2>
             <p class="section-content">請填寫以下資訊，成功提交後系統將由專人主動與您聯繫。</p>
 
-            <!-- 請將 action 替換為你的 Google Form 提交網址 (formResponse) -->
-            <form action="https://docs.google.com/forms/d/e/1FAIpQLScSIFYlCjPgH_bZCIbTWww3HcKqo6VNU_kPQQsMMVK59shWzg/formResponse" method="POST" target="hidden_iframe" onsubmit="submitted=true;">
-                
+            <form id="customForm">
                 <div class="form-group">
                     <label for="name">姓名 / 稱呼 <span class="required">*</span></label>
-                    <input type="text" id="name" name="entry.1757410347" placeholder="請輸入您的姓名" required>
+                    <input type="text" id="name" placeholder="請輸入您的姓名" required>
                 </div>
 
                 <div class="form-group">
                     <label for="line">LINE ID <span class="required">*</span></label>
-                    <input type="text" id="line" name="entry.2129604327" placeholder="請輸入您的 LINE ID" required>
+                    <input type="text" id="line" placeholder="請輸入您的 LINE ID" required>
                 </div>
 
                 <div class="form-group">
                     <label for="instagram">Instagram 帳號 <span class="required">*</span></label>
-                    <input type="text" id="instagram" name="entry.880478202" placeholder="例如：@your_username" required>
+                    <input type="text" id="instagram" placeholder="例如：@your_username" required>
                 </div>
 
-                <button type="submit" class="submit-btn">🚀 立即送出申請</button>
+                <button type="submit" id="submitBtn" class="submit-btn">🚀 立即送出申請</button>
             </form>
-
-            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {alert('預約資訊已成功送出！我們會盡快與您聯繫。');}"></iframe>
         </div>
 
     </div>
@@ -167,8 +163,6 @@
     </div>
 
     <script>
-        let submitted = false;
-
         function openLightbox(src) {
             document.getElementById('lightbox-img').src = src;
             document.getElementById('lightbox').style.display = 'flex';
@@ -177,6 +171,43 @@
         function closeLightbox() {
             document.getElementById('lightbox').style.display = 'none';
         }
+
+        // 表單提交處理邏輯
+        document.getElementById('customForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // 防止頁面重新整理
+
+            const submitBtn = document.getElementById('submitBtn');
+            const GAS_URL = 'https://script.google.com/macros/s/AKfycbzVTYA9boJREI1LxME8iLOGzSm-DMlhbYrDTROxs8--ELdkIPsg7-rN7ALplUg7-kG9pw/exec';
+
+            // 按鈕停用防重複點擊
+            submitBtn.disabled = true;
+            submitBtn.innerText = '資料送出中...';
+
+            const payload = {
+                name: document.getElementById('name').value,
+                line: document.getElementById('line').value,
+                instagram: document.getElementById('instagram').value
+            };
+
+            fetch(GAS_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            })
+            .then(() => {
+                alert('預約資訊已成功送出！我們會盡快與您聯繫。');
+                document.getElementById('customForm').reset();
+            })
+            .catch(err => {
+                console.error(err);
+                alert('送出失敗，請稍後再試！');
+            })
+            .finally(() => {
+                submitBtn.disabled = false;
+                submitBtn.innerText = '🚀 立即送出申請';
+            });
+        });
     </script>
 </body>
 </html>
