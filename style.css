@@ -1,0 +1,279 @@
+:root {
+    --primary: #1e88e5;
+    --bg: #f4f6f9;
+    --card-bg: #ffffff;
+    --text-main: #2b3a4a;
+    --text-sub: #667085;
+    
+    --pill-blue-bg: #e8f1ff;
+    --pill-blue-text: #2563eb;
+    
+    --pill-soft-blue-bg: #e0f2fe;
+    --pill-soft-blue-text: #0284c7;
+
+    --pill-green-bg: #e6f4ea;
+    --pill-green-text: #137333;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg);
+    color: var(--text-main);
+    -webkit-font-smoothing: antialiased;
+}
+
+.sticky-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.header {
+    background-color: #ffffff;
+    padding: 18px 15px;
+    text-align: center;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: #1e293b;
+}
+
+.header p {
+    margin: 6px 0 0 0;
+    font-size: 0.85rem;
+    color: var(--text-sub);
+}
+
+.container {
+    padding: 16px;
+    max-width: 550px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.card {
+    background: var(--card-bg);
+    border-radius: 20px;
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    border: 1px solid #f0f0f0;
+}
+
+/* 膠囊標籤 */
+.pill-tag {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 14px;
+}
+
+.pill-blue { background-color: var(--pill-blue-bg); color: var(--pill-blue-text); }
+.pill-soft-blue { background-color: var(--pill-soft-blue-bg); color: var(--pill-soft-blue-text); }
+.pill-green { background-color: var(--pill-green-bg); color: var(--pill-green-text); }
+
+.day-title {
+    margin: 0 0 10px 0;
+    font-size: 1.25rem;
+    color: #0f172a;
+    font-weight: 800;
+}
+
+/* 個人檔案區域 */
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 8px;
+}
+
+.profile-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--pill-blue-bg);
+}
+
+.profile-title h2 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #0f172a;
+}
+
+.subtitle {
+    margin: 4px 0 0 0;
+    font-size: 0.88rem;
+    color: var(--text-sub);
+}
+
+.skill-list {
+    margin: 8px 0 0 0;
+    padding-left: 20px;
+    font-size: 0.92rem;
+    color: #475569;
+    line-height: 1.6;
+}
+
+.divider {
+    height: 1px;
+    background-color: #f1f5f9;
+    margin: 18px 0;
+}
+
+/* 數據統計焦點框 */
+.stats-grid {
+    display: flex;
+    gap: 10px;
+    margin-top: 14px;
+}
+
+.stat-box {
+    flex: 1;
+    background-color: #f8fafc;
+    border-radius: 12px;
+    padding: 12px 6px;
+    text-align: center;
+    border: 1px solid #e2e8f0;
+}
+
+.stat-num {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--primary);
+}
+
+.stat-label {
+    font-size: 0.75rem;
+    color: var(--text-sub);
+}
+
+/* 學員見證與截圖 */
+.testimonial-card {
+    margin-top: 10px;
+}
+
+.badge {
+    display: inline-block;
+    background-color: #fef3c7;
+    color: #b45309;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 6px;
+    margin-bottom: 6px;
+}
+
+.testimonial-text-content h3 {
+    margin: 4px 0;
+    font-size: 1.05rem;
+    color: #0f172a;
+}
+
+.testimonial-text-content p {
+    margin: 4px 0 12px 0;
+    font-size: 0.9rem;
+    color: #475569;
+    line-height: 1.5;
+}
+
+.proof-img {
+    width: 100%;
+    max-height: 320px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.proof-img:hover {
+    transform: scale(1.02);
+}
+
+.img-group {
+    display: flex;
+    gap: 8px;
+}
+
+.proof-img-sm {
+    flex: 1;
+    height: 140px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+    cursor: pointer;
+}
+
+/* 表單樣式 */
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #334155;
+    margin-bottom: 6px;
+}
+
+.required { color: #dc2626; }
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #cbd5e1;
+    box-sizing: border-box;
+    font-size: 0.95rem;
+    outline: none;
+}
+
+.form-group input:focus { border-color: var(--primary); }
+
+.submit-btn {
+    width: 100%;
+    background-color: var(--primary);
+    color: #ffffff;
+    border: none;
+    padding: 14px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.submit-btn:hover { background-color: #1565c0; }
+
+/* Lightbox 燈箱放大效果 */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 85vh;
+    border-radius: 12px;
+}
