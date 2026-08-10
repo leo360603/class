@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>自媒體短影音實戰培訓｜限時一對一招生</title>
+    <title>自媒體短影音代操｜限時一對一免費定位諮詢</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,7 +12,7 @@
     <div class="sticky-header">
         <div class="header">
             <h1>🔥 自媒體爆款短影音與自動化變現營</h1>
-            <p>手把手帶你打造高爆款流量，建立自動化私訊預約系統</p>
+            <p>手把手帶你打造高爆款流量</p>
         </div>
     </div>
 
@@ -23,9 +23,9 @@
             <span class="pill-tag pill-blue">👋 導師介紹</span>
             <div class="profile-header">
                 <!-- 大頭照放於 images 資料夾 -->
-                <img src="images/your-photo.jpg" alt="建豪 Jianhao" class="profile-img" onerror="this.onerror=null;this.src='https://via.placeholder.com/80?text=Jianhao'">
+                <img src="images/your-photo.jpg" alt="豪哥 Jeremy" class="profile-img" onerror="this.onerror=null;this.src='https://via.placeholder.com/80?text=Jianhao'">
                 <div class="profile-title">
-                    <h2>建豪 Jianhao</h2>
+                    <h2>豪哥 Jeremy</h2>
                     <p class="subtitle">自媒體操盤手 / 品牌行銷顧問</p>
                 </div>
             </div>
@@ -35,7 +35,7 @@
             <div class="section">
                 <div class="section-title">💡 關於我</div>
                 <div class="section-content">
-                    嗨！我是建豪。專注於短影音腳本企劃、品牌自媒體代操與 ManyChat 自動化行銷系統建立。協助過多位教練、創作者與實體店家從 0 到 1 建構高轉換率的內容矩陣，擺脫盲目發文的困境，打造真正能獲利的個人品牌。
+                    嗨！我是豪哥。專注於短影音腳本企劃、品牌自媒體代操與自動化行銷系統建立。協助過多位教練、創作者與實體店家從 0 到 1 建構高轉換率的內容矩陣，擺脫盲目發文的困境，打造真正能獲利的個人品牌。
                 </div>
             </div>
 
@@ -43,8 +43,8 @@
                 <span class="pill-tag pill-green">🚀 核心專長</span>
                 <ul class="skill-list">
                     <li>CapCut / 剪映高效剪輯與爆款腳本拆解</li>
-                    <li>Instagram 自動化導流與 ManyChat 私訊轉換</li>
-                    <li>精準社群定位與實體/線上課程商業變現</li>
+                    <li>協助一對一自媒體陪跑，學會如何自主運作</li>
+                    <li>精準社群定位與實體/線上商業變現</li>
                 </ul>
             </div>
         </div>
@@ -132,7 +132,7 @@
         <!-- 區塊 3：報名諮詢表單 -->
         <div class="card">
             <span class="pill-tag pill-blue">📩 立即預約諮詢</span>
-            <h2 class="day-title">留下資訊，搶先獲得一對一評估名額</h2>
+            <h2 class="day-title">留下資訊，前20名可預約30分鐘免費一對一諮詢定位</h2>
             <p class="section-content">請填寫以下資訊，成功提交後系統將由專人主動與您聯繫。</p>
 
             <form id="customForm">
@@ -174,7 +174,7 @@
 
         // 表單提交處理邏輯
         document.getElementById('customForm').addEventListener('submit', function(e) {
-            e.preventDefault(); // 防止頁面重新整理
+            e.preventDefault(); // 防止頁面預設送出行為
 
             const submitBtn = document.getElementById('submitBtn');
             const GAS_URL = 'https://script.google.com/macros/s/AKfycbzVTYA9boJREI1LxME8iLOGzSm-DMlhbYrDTROxs8--ELdkIPsg7-rN7ALplUg7-kG9pw/exec';
@@ -197,13 +197,11 @@
             })
             .then(() => {
                 alert('預約資訊已成功送出！我們會盡快與您聯繫。');
-                document.getElementById('customForm').reset();
+                window.location.reload(); // 方案 A：按下確定後重新整理頁面並回到最頂端
             })
             .catch(err => {
                 console.error(err);
                 alert('送出失敗，請稍後再試！');
-            })
-            .finally(() => {
                 submitBtn.disabled = false;
                 submitBtn.innerText = '🚀 立即送出申請';
             });
